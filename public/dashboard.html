@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #121212;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.5s ease;
+    }
+    h1 {
+      margin: 20px 0;
+      font-size: 2.5rem;
+      color: #e6dedb;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    }
+    .card p {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+    .alert {
+      color: #ffffff;
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      background: rgba(255, 0, 0, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    #login-container {
+      margin-top: 50px;
+    }
+    #dashboard {
+      display: none;
+    }
+    #login-error {
+      color: red;
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ESP Sensor Dashboard</h1>
+  <div id="login-container">
+    <form id="login-form">
+      <input type="text" id="ssid" placeholder="SSID" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="login-error">Invalid credentials</p>
+  </div>
+  <div id="dashboard">
+    <div class="container">
+      <div class="card">
+        <p>Temperature:</p>
+        <p><span id="temperature">Loading...</span> °C</p>
+      </div>
+      <div class="card">
+        <p>Humidity:</p>
+        <p><span id="humidity">Loading...</span> %</p>
+      </div>
+      <div class="card">
+        <p>Light Intensity:</p>
+        <p><span id="photoresistor">Loading...</span></p>
+      </div>
+      <div class="card">
+        <p>Air Quality:</p>
+        <p><span id="airQuality">Loading...</span></p>
+      </div>
+      <div class="card">
+        <p>Gas Level:</p>
+        <p><span id="gas">Loading...</span></p>
+      </div>
+    </div>
+    <p class="alert" id="alert">Emergency Alert Triggered!</p>
+  </div>
+</body>
+<script src="dashboard.js"></script>
+</html>
